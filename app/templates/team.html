@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Our Team | {{ site.short }}{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Our Team</p>
+    <h1>The strategic minds behind MCG</h1>
+    <p class="page-lead">{{ team.intro }}</p>
+  </div>
+</section>
+{% for group in team.groups %}
+<section class="section team-section">
+  <div class="container">
+    <h2 class="section-title center">{{ group.title }}</h2>
+    <div class="team-grid">
+      {% for name, role, bio in group.members %}
+      <article class="team-card">
+        <div class="team-avatar">{{ name.split(' ')[0][0] }}{{ name.split(' ')[1][0] if name.split(' ')|length > 1 else '' }}</div>
+        <h3>{{ name }}</h3>
+        <p class="team-role">{{ role }}</p>
+        <p class="team-bio">{{ bio }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endfor %}
+{% endblock %}

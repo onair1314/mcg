@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ art.title }} | {{ site.short }}{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container narrow">
+    <p class="eyebrow"><a href="/featured-insights">Featured Insights</a></p>
+    <h1>{{ art.title }}</h1>
+    <p class="article-date">{{ art.date }}</p>
+    <div class="insight-tags">
+      {% for t in art.tags %}<span class="tag">{{ t }}</span>{% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container narrow article-body">
+    <p class="lead">{{ art.summary }}</p>
+    {% for para in art.body %}
+    <p class="body-para">{{ para }}</p>
+    {% endfor %}
+    <a class="btn btn-outline mt-2" href="/featured-insights">&larr; Back to Insights</a>
+  </div>
+</section>
+{% endblock %}

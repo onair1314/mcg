@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Featured Insights | {{ site.short }}{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Featured Insights</p>
+    <h1>Stay tuned for what you need to know.</h1>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="insight-list">
+      {% for post in insights %}
+      <article class="insight-row">
+        <div class="insight-meta">
+          <span class="insight-date">{{ post.date }}</span>
+          <div class="insight-tags">
+            {% for t in post.tags %}<span class="tag">{{ t }}</span>{% endfor %}
+          </div>
+        </div>
+        <div class="insight-main">
+          <h2><a href="/featured-insights/{{ post.slug }}">{{ post.title }}</a></h2>
+          <p>{{ post.summary }}</p>
+          <a class="read-more" href="/featured-insights/{{ post.slug }}">Read more &rarr;</a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

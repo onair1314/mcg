@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Contact Us | {{ site.short }}{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Get in Touch</p>
+    <h1>Talk to Us.</h1>
+    <p class="page-lead">Submit your enquiries here or meet us at our Bangkok HQ. We're ready to help you navigate what's next.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <h3>Bangkok HQ</h3>
+      <p>{{ site.address }}</p>
+      <h3>Email</h3>
+      <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      <div class="map-placeholder">
+        <span>Dusit Central Park Offices<br>Silom, Bangkok</span>
+      </div>
+    </div>
+    <form class="contact-form" method="post" action="/contact-us">
+      <label>Name <input type="text" name="name" required></label>
+      <label>Email <input type="email" name="email" required></label>
+      <label>Organisation <input type="text" name="org"></label>
+      <label>How can we help? <textarea name="message" rows="5" required></textarea></label>
+      <button class="btn btn-primary" type="submit">Submit Enquiry</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

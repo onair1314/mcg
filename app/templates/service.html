@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}{{ svc.title }} | {{ site.short }}{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Our Services</p>
+    <h1>{{ svc.title }}</h1>
+    <p class="page-tagline">{{ svc.tagline }}</p>
+    <p class="page-lead">{{ svc.lead }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container narrow">
+    {% for para in svc.body %}
+    <p class="body-para">{{ para }}</p>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section scopes-section">
+  <div class="container">
+    <h2 class="section-title center">{{ svc.scopes_title }}</h2>
+    <div class="scope-grid">
+      {% for name, desc in svc.scopes %}
+      <div class="scope-card">
+        <h3>{{ name }}</h3>
+        <p>{{ desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section cta-section">
+  <div class="container cta-inner">
+    <h2>Ready to discuss your objectives?</h2>
+    <p>Talk to our team about how MCG can support your goals in Thailand and beyond.</p>
+    <div class="hero-actions center">
+      <a class="btn btn-primary" href="/contact-us">Contact Us</a>
+      <a class="btn btn-outline" href="/case-studies">Case Studies</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

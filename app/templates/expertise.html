@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Our Expertise | {{ site.short }}{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Our Experiences</p>
+    <h1>Our Expertise</h1>
+    <p class="page-lead">{{ intro }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="expertise-grid wide">
+      {% for name, desc in expertise %}
+      <div class="expertise-item card">
+        <h3>{{ name }}</h3>
+        <p>{{ desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

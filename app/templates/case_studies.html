@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Case Studies | {{ site.short }}{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Our Experiences</p>
+    <h1>Case Studies</h1>
+    <p class="page-lead">A selection of representative engagements illustrating how MCG turns policy, regulatory and stakeholder complexity into practical outcomes.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="case-grid">
+      {% for title, sector, desc in cases %}
+      <article class="case-card">
+        <span class="case-sector">{{ sector }}</span>
+        <h3>{{ title }}</h3>
+        <p>{{ desc }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

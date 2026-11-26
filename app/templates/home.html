@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}Public Affairs & Government Relations Consultancy Thailand | {{ site.short }}{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">Bangkok · Southeast Asia · Global</p>
+    <h1 class="hero-title">{{ home.hero_title }}</h1>
+    <p class="hero-intro">{{ home.hero_intro }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="/contact-us">Start a Conversation</a>
+      <a class="btn btn-ghost" href="/our-expertise">Our Expertise</a>
+    </div>
+  </div>
+</section>
+
+<section class="section future-ready">
+  <div class="container narrow">
+    <h2 class="section-title">{{ home.future_ready_title }}</h2>
+    <p class="lead">{{ home.future_ready_body }}</p>
+  </div>
+</section>
+
+<section class="section news-updates">
+  <div class="container">
+    <h2 class="section-kicker">News Updates</h2>
+    <div class="news-grid">
+      {% for post in insights %}
+      <article class="news-card">
+        <div class="news-date">{{ post.date }}</div>
+        <h3 class="news-title">{{ post.title }}</h3>
+        <p class="news-summary">{{ post.summary }}</p>
+        <a class="read-more" href="/featured-insights/{{ post.slug }}">Read more &rarr;</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section services-section">
+  <div class="container">
+    <h2 class="section-title center">Our Services</h2>
+    <p class="section-sub center">{{ home.services_intro }}</p>
+    <div class="service-grid">
+      {% for s in services %}
+      <a class="service-card" href="/services/{{ s.slug }}">
+        <span class="service-index">0{{ loop.index }}</span>
+        <h3>{{ s.card_title }}</h3>
+        <p>{{ s.tagline }}</p>
+        <span class="service-arrow">&rarr;</span>
+      </a>
+      {% endfor %}
+    </div>
+    <div class="center mt-2">
+      <a class="btn btn-primary" href="/case-studies">View Case Studies</a>
+    </div>
+  </div>
+</section>
+
+<section class="section public-sector-band">
+  <div class="container band-inner">
+    <div>
+      <h2 class="section-title light">Browsing from the Public Sector?</h2>
+      <p class="light">Check out our tailored solutions for governments, public organisations, and embassies.</p>
+    </div>
+    <a class="btn btn-light" href="/services/public-sector-advisory">Public Sector Solutions</a>
+  </div>
+</section>
+
+<section class="section expertise-section">
+  <div class="container">
+    <h2 class="section-title center">Our Expertise</h2>
+    <p class="section-sub center">{{ home.expertise_intro }}</p>
+    <div class="expertise-grid">
+      {% for name, desc in expertise %}
+      <div class="expertise-item">
+        <h3>{{ name }}</h3>
+        <p>{{ desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="center mt-2">
+      <a class="btn btn-outline" href="/our-expertise">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<section class="section partners-section">
+  <div class="container">
+    <h2 class="section-title center">MCG: Integrated Global Network</h2>
+    <p class="section-sub center">Visionary global strategies meet local insights. Seamless services beyond borders.</p>
+    <div class="partner-row">
+      {% for p in partners %}
+      <div class="partner-chip">{{ p }}</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section cta-section">
+  <div class="container cta-inner">
+    <h2>Great Partnerships Start with a Conversation.</h2>
+    <p>Whether you're a government entity, investor, or enterprise exploring new opportunities, we're ready to help you navigate what's next. Let's build something bold, together.</p>
+    <a class="btn btn-primary btn-lg" href="/contact-us">Contact Us</a>
+  </div>
+</section>
+{% endblock %}
